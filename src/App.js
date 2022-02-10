@@ -1,13 +1,16 @@
 import './App.css';
 import Grid from './components/grid/Grid';
+import {useState} from "react";
+import Keyboard from "./components/keyboard/Keyboard"
 
 function App() {
-  const test = "hi"
-  const anotherTest = "hello again"
+  const [guess, setGuess] = useState("");
+
   return (
     <div className="App">
-      <h1>Hi</h1>
-      <Grid test={test} anotherTest={anotherTest}/>
+      <h1>Wordle</h1>
+      <Grid guess={guess}/>
+      <Keyboard />
     </div>
   );
 }

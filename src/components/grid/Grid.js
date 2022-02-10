@@ -1,11 +1,12 @@
 import Row from "../row/Row";
+import "./Grid.css";
 
-const Grid = ({test, anotherTest}) => {
+const Grid = ({guess}) => {
     
     const grid = [];
     
     for(let i = 0; i < 6; i++){
-        grid.push(<Row />)
+        grid.push(<Row key={i}/>)
     }
 
 
