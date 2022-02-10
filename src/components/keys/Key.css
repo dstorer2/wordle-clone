@@ -1,14 +1,9 @@
-.KeyRow{
-    display: flex;
-    justify-content: center;
-}
-.BigButton{
+.Key{
     color: whitesmoke;
     background-color: grey;
     height: 100px;
-    width: 150px;
+    width: 60px;
     border-radius: 8px;
     margin: 6px;
     font-size: 30px;
-
 }

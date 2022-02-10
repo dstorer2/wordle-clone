@@ -1,12 +1,33 @@
-import Row from "../row/Row";
+import CellRow from "../cellrow/CellRow";
 import "./Grid.css";
 
-const Grid = ({guess}) => {
+const Grid = ({guess, activeRow, previousGuesses}) => {
     
     const grid = [];
     
     for(let i = 0; i < 6; i++){
-        grid.push(<Row key={i}/>)
+        if(i === activeRow){
+            grid.push(
+                <CellRow
+                    key={i}
+                    content={guess}
+                />
+            )
+        }else if(i < previousGuesses.length){
+            grid.push(
+                <CellRow 
+                    key={i}
+                    content={previousGuesses[i]}
+                />
+            )
+        }else{
+            grid.push(
+                <CellRow 
+                    key={i}
+                    content=""
+                />
+            )
+        }
     }
 
 
