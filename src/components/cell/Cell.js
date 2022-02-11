@@ -1,7 +1,12 @@
-const Cell = props => {
+import "./Cell.css";
+import {useState} from 'react';
+
+const Cell = ({color, letter}) => {
+    const [content, setContent] = useState(letter);
+
     return(
-        <div>
-            <h1>The cell says, "Hello"</h1>
+        <div className={`Cell ${color}`}>
+            <h1>{letter}</h1>
         </div>
     )
 }
