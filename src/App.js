@@ -4,6 +4,7 @@ import {useState} from "react";
 import Keyboard from "./components/keyboard/Keyboard"
 const axios = require("axios");
 
+
 function App() {
   const [winner, setWinner] = useState(false);
   const [loser, setLoser] = useState(false);
@@ -13,6 +14,9 @@ function App() {
   const [activeRow, setActiveRow] = useState(0);
   const [previousGuesses, setPreviousGuesses] = useState([]);
   const solution = "PIZZA";
+
+  const apiUrl = "http://localhost:"
+  const apiPort = process.env.REACT_APP_API_PORT || 1234;
 
   const win = <h1>You Win!</h1>;
   const lose = <h1>You Lose!</h1>
@@ -64,7 +68,7 @@ function App() {
 
   const checkDictionary = async word => {
     let isValid;
-    await axios.get(`http://localhost:1234/api/${word}`)
+    await axios.get(`${apiUrl}${apiPort}/api/${word}`)
       .then(res => res.data.valid ? isValid = true : isValid = false)
       .catch(err => console.log(err));
     return isValid;
