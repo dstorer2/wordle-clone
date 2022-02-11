@@ -1,7 +1,7 @@
 import CellRow from "../cellrow/CellRow";
 import "./Grid.css";
 
-const Grid = ({guess, activeRow, previousGuesses}) => {
+const Grid = ({cellContent, activeRow, previousGuesses}) => {
     
     const grid = [];
     
@@ -10,7 +10,7 @@ const Grid = ({guess, activeRow, previousGuesses}) => {
             grid.push(
                 <CellRow
                     key={i}
-                    content={guess}
+                    content={cellContent}
                 />
             )
         }else if(i < previousGuesses.length){
