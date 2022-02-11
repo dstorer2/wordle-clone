@@ -2,7 +2,8 @@
     color: whitesmoke;
     background-color: grey;
     height: 100px;
-    width: 60px;
+    min-width: 60px;
+    width: fit-content;
     border-radius: 8px;
     margin: 6px;
     font-size: 30px;

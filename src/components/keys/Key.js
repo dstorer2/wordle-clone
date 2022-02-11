@@ -1,8 +1,8 @@
 import "./Key.css";
 
-const Key = ({letter, handleClick}) => {
+const Key = ({content, handleClick}) => {
     return(
-        <button className="Key" value={letter} onClick={handleClick}>{letter.toUpperCase()}</button>
+        <button className="Key" value={content} onClick={handleClick}>{content.toUpperCase()}</button>
     )
 }
 

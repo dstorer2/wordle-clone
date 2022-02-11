@@ -1,22 +1,21 @@
 import Key from "../keys/Key";
 import "./KeyRow.css";
 
-const KeyRow = ({letters, bottomRow, handleClick, handleBackspace}) => {
+const KeyRow = ({letters, bottomRow, handleClick, handleBackspace, handleEnter}) => {
     const keys = [];
-    if(!bottomRow){
-        for(let i = 0; i < letters.length; i++){
-            keys.push(
-                <Key key={i} letter={letters[i]} handleClick={handleClick}/>
-            )
-        }
-    }else{
-        keys.push(<button className="BigButton">Enter</button>)
-        for(let i = 0; i < letters.length; i++){
-            keys.push(
-                <Key key={i} letter={letters[i]} handleClick={handleClick} />
-            )
-        }
-        keys.push(<button className="BigButton" onClick={handleBackspace}>BKSP</button>)
+    if(bottomRow){
+        keys.push(<Key key="enter" content="Enter" handleClick={handleEnter}/>)
+    }
+    for(let i = 0; i < letters.length; i++){
+        keys.push(
+            <Key key={letters[i]} content={letters[i]} handleClick={handleClick}/>
+        )
+    }
+    if(bottomRow){
+        keys.push(
+            <Key key="backspace" content="BKSP" handleClick={handleBackspace}/>
+            // <button className="BigButton" onClick={handleBackspace}>BKSP</button>
+        )
     }
     return(
         <div className="KeyRow">

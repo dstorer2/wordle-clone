@@ -1,6 +1,6 @@
 import KeyRow from "../keyrow/KeyRow";
 
-const Keyboard = ({handleClick, handleBackspace}) => {
+const Keyboard = ({handleClick, handleBackspace, handleEnter}) => {
     return(
         <div className="Keyboard">
             <KeyRow 
@@ -21,6 +21,7 @@ const Keyboard = ({handleClick, handleBackspace}) => {
                 bottomRow={true}
                 handleClick={handleClick}
                 handleBackspace={handleBackspace}
+                handleEnter={handleEnter}
             />
         </div>
     )
