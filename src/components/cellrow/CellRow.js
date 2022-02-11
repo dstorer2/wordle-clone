@@ -6,9 +6,9 @@ const CellRow = ({content}) => {
     const color = "default";
     
     for(let i = 0; i < 5; i++){
-        if(content[i] !== -1){
+        if(content[i] !== undefined){
             row.push(
-                <Cell key={i} color={color} letter={content[i]}/>
+                <Cell key={i} color={content[i].color} letter={content[i].letter}/>
             )
         }else{
             row.push(

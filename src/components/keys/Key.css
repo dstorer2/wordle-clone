@@ -8,3 +8,19 @@
     margin: 6px;
     font-size: 30px;
 }
+
+.defaultKey{
+    background-color: grey;
+}
+
+.green{
+    background-color: rgb(109, 206, 109);
+}
+
+.yellow{
+    background-color: rgb(207, 207, 62);
+}
+
+.dark{
+    background-color: rgb(65, 64, 64);
+}
