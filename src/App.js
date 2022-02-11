@@ -6,6 +6,7 @@ const axios = require("axios");
 
 function App() {
   const [guess, setGuess] = useState("");
+  const [lettersGuessed, setLettersGuessed] = useState({});
   const [cellContent, setCellContent] = useState([])
   const [activeRow, setActiveRow] = useState(0);
   const [previousGuesses, setPreviousGuesses] = useState([]);
@@ -64,12 +65,6 @@ function App() {
     return isValid;
   }
 
-  // const animation = (row, word) => {
-  //   grid[row].map((cell, i) => {
-  //     console.log(cell.key)
-  //   })
-  // }
-
   const checkLetters = () => {
     for(let i = 0; i < guess.length; i++){
       let color = "dark";
@@ -84,6 +79,25 @@ function App() {
         cellContent[i].color = color
       ])
     }
+  }
+
+  const updateLetters = letterObjArray => {
+    letterObjArray.forEach(letter => {
+      if(lettersGuessed[letter.letter] !== undefined && lettersGuessed[letter.letter] === "green"){
+        setLettersGuessed((prevState) => (
+          {
+            ...prevState
+          }
+        ))
+      }else{
+        setLettersGuessed((prevState) => (
+          {
+            ...prevState,
+            [letter.letter]: letter.color
+          }
+        ))
+      }
+    })
   }
 
   const handleEnter = async e => {
@@ -101,6 +115,9 @@ function App() {
 
     checkLetters();
 
+    updateLetters(cellContent);
+
+
     setPreviousGuesses([
       ...previousGuesses,
       cellContent
@@ -108,6 +125,7 @@ function App() {
     setActiveRow(activeRow+1);
     setGuess("");
     setCellContent([]);
+    console.log("Letters guessed", lettersGuessed);
   }
 
   return (
@@ -119,6 +137,7 @@ function App() {
         previousGuesses={previousGuesses}
       />
       <Keyboard 
+        lettersGuessed={lettersGuessed}
         handleClick={handleKeyClick} 
         handleBackspace={handleBackspace}
         handleEnter={handleEnter}

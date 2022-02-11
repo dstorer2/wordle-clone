@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Cell.css";
-// import {useState} from 'react';
 
 const Cell = ({color, letter}) => {
-    // const [content, setContent] = useState(letter);
     const [display, setDisplay] = useState(color)
     useEffect(() => {
         setDisplay(color);

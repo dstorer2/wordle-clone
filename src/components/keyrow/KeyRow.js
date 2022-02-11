@@ -1,15 +1,22 @@
 import Key from "../keys/Key";
 import "./KeyRow.css";
 
-const KeyRow = ({letters, bottomRow, handleClick, handleBackspace, handleEnter}) => {
+const KeyRow = ({letters, bottomRow, handleClick, handleBackspace, handleEnter, lettersGuessed}) => {
     const keys = [];
     if(bottomRow){
         keys.push(<Key key="enter" content="Enter" handleClick={handleEnter}/>)
     }
     for(let i = 0; i < letters.length; i++){
-        keys.push(
-            <Key key={letters[i]} content={letters[i]} handleClick={handleClick}/>
-        )
+        if(letters[i].toUpperCase() in lettersGuessed){
+            keys.push(
+                <Key key={letters[i]} content={letters[i]} handleClick={handleClick} color={lettersGuessed[letters[i].toUpperCase()]}/>
+            )
+        }else{
+            keys.push(
+                <Key key={letters[i]} content={letters[i]} handleClick={handleClick} color="defaultKey" />
+            )
+        }
+        
     }
     if(bottomRow){
         keys.push(
