@@ -5,12 +5,17 @@ import Keyboard from "./components/keyboard/Keyboard"
 const axios = require("axios");
 
 function App() {
+  const [winner, setWinner] = useState(false);
+  const [loser, setLoser] = useState(false);
   const [guess, setGuess] = useState("");
   const [lettersGuessed, setLettersGuessed] = useState({});
   const [cellContent, setCellContent] = useState([])
   const [activeRow, setActiveRow] = useState(0);
   const [previousGuesses, setPreviousGuesses] = useState([]);
   const solution = "PIZZA";
+
+  const win = <h1>You Win!</h1>;
+  const lose = <h1>You Lose!</h1>
 
   const handleKeyClick = e => {
     e.preventDefault();
@@ -100,6 +105,21 @@ function App() {
     })
   }
 
+  const checkForOutcomes = () => {
+    let isWinner = true;
+    cellContent.forEach(cell => {
+      if(cell.color !== "green"){
+        isWinner = false
+      }
+    })
+    if(isWinner){
+      return setWinner(true)
+    }
+    if(activeRow+1 === 6){
+      return setLoser(true)
+    }
+  }
+
   const handleEnter = async e => {
     e.preventDefault();
     if(guess.length < 5){
@@ -117,6 +137,8 @@ function App() {
 
     updateLetters(cellContent);
 
+    checkForOutcomes();
+
 
     setPreviousGuesses([
       ...previousGuesses,
@@ -131,6 +153,8 @@ function App() {
   return (
     <div className="App">
       <h1>Wordle</h1>
+      {winner ? win : null}
+      {loser ? lose : null}
       <Grid 
         cellContent={cellContent} 
         activeRow={activeRow} 
