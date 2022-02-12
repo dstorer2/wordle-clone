@@ -13,7 +13,7 @@
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
     .Cell{
-        margin: 8px;
+        margin: 2px;
         border: 2px solid darkslategray;
         height: 40px;
         width: 40px;

@@ -6,7 +6,7 @@
     color: whitesmoke;
     background-color: grey;
     height: 100px;
-    width: 150px;
+    min-width: 150px;
     border-radius: 8px;
     margin: 6px;
     font-size: 30px;
