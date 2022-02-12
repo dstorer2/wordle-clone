@@ -68,6 +68,9 @@ function App() {
 
   const checkDictionary = async word => {
     let isValid;
+    console.log("api url", apiUrl);
+    console.log("api port", apiPort);
+    console.log("word", word);
     await axios.get(`${apiUrl}${apiPort}/api/${word}`)
       .then(res => res.data.valid ? isValid = true : isValid = false)
       .catch(err => console.log(err));
@@ -132,6 +135,7 @@ function App() {
     if (!validateGuess(guess)) {
       return alert("Invalid attempt");
     }
+    console.log("okay until api call")
     const dictCheck = await checkDictionary(guess);
     if(!dictCheck){
       return alert("Invalid guess")
