@@ -8,6 +8,22 @@
     justify-content: center;
     color: whitesmoke;
 }
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    .Cell{
+        margin: 8px;
+        border: 2px solid darkslategray;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: whitesmoke;
+    }
+}
+
 .default{
     background-color: rgb(93, 126, 235);
 }

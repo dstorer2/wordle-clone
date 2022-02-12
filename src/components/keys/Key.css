@@ -9,6 +9,21 @@
     font-size: 30px;
 }
 
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    .Key{
+        color: whitesmoke;
+        background-color: grey;
+        height: 50px;
+        min-width: 25px;
+        width: fit-content;
+        border-radius: 8px;
+        margin: 3px;
+        font-size: 15px;
+    }
+}
+
 .defaultKey{
     background-color: grey;
 }
