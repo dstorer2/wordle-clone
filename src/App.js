@@ -19,8 +19,8 @@ function App() {
   // const apiUrl = process.env.API_URL || "http://localhost:";
   // const apiPort = process.env.REACT_APP_API_PORT || 1234;
 
-  const win = <h1>You Win!</h1>;
-  const lose = <h1>You Lose!</h1>
+  const win = <h1 className='title'>You Win!</h1>;
+  const lose = <h1 className='title'>You Lose!</h1>
 
   const handleKeyClick = e => {
     e.preventDefault();
@@ -160,7 +160,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Wordle</h1>
+      <h1 className='title'>Wordle Clone</h1>
       {winner ? win : null}
       {loser ? lose : null}
       <Grid 
