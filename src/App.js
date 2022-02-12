@@ -2,6 +2,7 @@ import './App.css';
 import Grid from './components/grid/Grid';
 import {useState} from "react";
 import Keyboard from "./components/keyboard/Keyboard"
+const config = require("./config/index");
 const axios = require("axios");
 
 
@@ -15,8 +16,8 @@ function App() {
   const [previousGuesses, setPreviousGuesses] = useState([]);
   const solution = "PIZZA";
 
-  const apiUrl = "http://localhost:"
-  const apiPort = process.env.REACT_APP_API_PORT || 1234;
+  // const apiUrl = process.env.API_URL || "http://localhost:";
+  // const apiPort = process.env.REACT_APP_API_PORT || 1234;
 
   const win = <h1>You Win!</h1>;
   const lose = <h1>You Lose!</h1>
@@ -68,10 +69,9 @@ function App() {
 
   const checkDictionary = async word => {
     let isValid;
-    console.log("api url", apiUrl);
-    console.log("api port", apiPort);
+    console.log("config api url", config);
     console.log("word", word);
-    await axios.get(`${apiUrl}${apiPort}/api/${word}`)
+    await axios.get(`${config.api}/api/${word}`)
       .then(res => res.data.valid ? isValid = true : isValid = false)
       .catch(err => console.log(err));
     return isValid;
