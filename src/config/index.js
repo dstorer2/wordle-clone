@@ -1,10 +1,10 @@
-const environment = process.env.NODE_ENV || "development";
+const environment = process.env.REACT_APP_NODE_ENV || "development";
 
 let appUrl, apiUrl;
 
 if (environment === "production") {
     appUrl = "http://localhost:" + process.env.PORT;
-    apiUrl = process.env.API_URL;
+    apiUrl = process.env.REACT_APP_API_URL;
 } else {
     appUrl = "http://localhost:3000";
     apiUrl = "http://localhost:1234";
