@@ -2,21 +2,12 @@
     display: flex;
     justify-content: center;
 }
-.BigButton{
-    color: whitesmoke;
-    background-color: grey;
-    height: 80px;
-    min-width: 150px;
-    border-radius: 8px;
-    margin: 6px;
-    font-size: 30px;
 
-}
 
-@media only screen 
+/* @media only screen 
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
-    .Key{
+    .BigButton{
         color: whitesmoke;
         background-color: grey;
         height: 50px;
@@ -26,4 +17,4 @@ and (max-device-width : 480px) {
         margin: 1px;
         font-size: 10px;
     }
-}
+} */

@@ -2,11 +2,13 @@ import './App.css';
 import Grid from './components/grid/Grid';
 import {useState} from "react";
 import Keyboard from "./components/keyboard/Keyboard"
+import PopUp from './components/popup/PopUp';
 const config = require("./config/index");
 const axios = require("axios");
 
 
 function App() {
+  const [popUp, setPopUp] = useState(true)
   const [winner, setWinner] = useState(false);
   const [loser, setLoser] = useState(false);
   const [guess, setGuess] = useState("");
@@ -21,6 +23,11 @@ function App() {
 
   const win = <h1 className='winlose'>You Win!</h1>;
   const lose = <h1 className='winlose'>You Lose!</h1>
+
+  const closePopUp = e => {
+    e.preventDefault();
+    setPopUp(false);
+  }
 
   const handleKeyClick = e => {
     e.preventDefault();
@@ -160,6 +167,7 @@ function App() {
 
   return (
     <div className="App">
+      {popUp ? <PopUp closePopUp={closePopUp} rules={true}/> : null}
       <h1 className='title'>Wordle Clone</h1>
       {winner ? win : null}
       {loser ? lose : null}
