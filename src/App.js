@@ -8,7 +8,7 @@ const axios = require("axios");
 
 
 function App() {
-  const [popUp, setPopUp] = useState(true)
+  const [rules, setRules] = useState(true)
   const [winner, setWinner] = useState(false);
   const [loser, setLoser] = useState(false);
   const [guess, setGuess] = useState("");
@@ -18,15 +18,11 @@ function App() {
   const [previousGuesses, setPreviousGuesses] = useState([]);
   const solution = "HIRED";
 
-  // const apiUrl = process.env.API_URL || "http://localhost:";
-  // const apiPort = process.env.REACT_APP_API_PORT || 1234;
-
-  const win = <h1 className='winlose'>You Win!</h1>;
-  const lose = <h1 className='winlose'>You Lose!</h1>
-
   const closePopUp = e => {
     e.preventDefault();
-    setPopUp(false);
+    setRules(false);
+    setWinner(false);
+    setLoser(false);
   }
 
   const handleKeyClick = e => {
@@ -167,10 +163,8 @@ function App() {
 
   return (
     <div className="App">
-      {popUp ? <PopUp closePopUp={closePopUp} rules={true}/> : null}
+      {rules || winner || loser ? <PopUp closePopUp={closePopUp} rules={rules} winner={winner} loser={loser}/> : null}
       <h1 className='title'>Wordle Clone</h1>
-      {winner ? win : null}
-      {loser ? lose : null}
       <Grid 
         cellContent={cellContent} 
         activeRow={activeRow} 
