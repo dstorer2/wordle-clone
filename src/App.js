@@ -16,7 +16,7 @@ function App() {
   const [cellContent, setCellContent] = useState([])
   const [activeRow, setActiveRow] = useState(0);
   const [previousGuesses, setPreviousGuesses] = useState([]);
-  const solution = "FROWN";
+  const solution = "HIRED";
 
   // const apiUrl = process.env.API_URL || "http://localhost:";
   // const apiPort = process.env.REACT_APP_API_PORT || 1234;
