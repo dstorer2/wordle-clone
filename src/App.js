@@ -16,7 +16,7 @@ function App() {
   const [cellContent, setCellContent] = useState([])
   const [activeRow, setActiveRow] = useState(0);
   const [previousGuesses, setPreviousGuesses] = useState([]);
-  const solution = "HIRED";
+  const solution = "CHAOS";
 
   const closePopUp = e => {
     e.preventDefault();
